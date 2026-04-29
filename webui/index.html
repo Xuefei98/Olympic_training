@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Training Comment Review</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <h1>Training Comment Review</h1>
+    <p>Left: video. Right: summary and full transcript.</p>
+  </header>
+
+  <main class="layout">
+    <section class="panel video-panel">
+      <div class="controls">
+        <label for="videoSelect">Video</label>
+        <select id="videoSelect"></select>
+      </div>
+      <video id="videoPlayer" controls preload="metadata"></video>
+      <p class="hint">Tip: click a comment timestamp to jump to that moment.</p>
+    </section>
+
+    <section class="panel comments-panel">
+      <div id="summaryStatus" class="summary-status"></div>
+      <div id="summarySections" class="summary-sections"></div>
+
+      <div class="subpanel transcript-subpanel">
+        <h2>Full Transcript</h2>
+        <pre id="transcriptBox" class="text-window transcript-window"></pre>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
