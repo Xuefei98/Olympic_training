@@ -8,23 +8,6 @@
 
 ---
 
-## 项目产出内容
-
-针对每个视频，提取器可生成：
-- `*.transcript.txt`：纠正后的转写（词典修正 + 可选 AI 修正）。
-- `*.transcript.raw.txt`：原始转写备份（当应用修正时写出）。
-- `*.summary.md`：三段式训练总结：
-  - `## 关键问题`
-  - `## 改进建议`
-  - `## 下次训练检查点`
-- `*.term_review.md`：确定性词典修正 + AI 候选术语修正。
-
-全局文件：
-- `training_log_output/training_log.md`
-- `training_log_output/training_log.json`
-
----
-
 ## 环境要求
 
 - Python 3.10+（推荐：3.11+）
@@ -59,23 +42,6 @@ ollama pull qwen2.5:7b-instruct
 
 ---
 
-## 目录结构
-
-默认目录结构如下：
-
-```text
-project-root/
-  videos/                     # 将所有 MP4 文件放在这里
-  training_log_output/        # 生成输出目录
-  extract_training_log.py
-  training_log_web.py
-  webui/
-```
-
-> `extract_training_log.py` 现在默认使用 `--input-dir videos`。
-
----
-
 ## 快速开始
 
 ### 1) 从视频生成训练日志
@@ -99,6 +65,40 @@ python3 training_log_web.py
 ```text
 http://127.0.0.1:8000/webui/
 ```
+
+---
+
+## 项目产出内容
+
+针对每个视频，提取器可生成：
+- `*.transcript.txt`：纠正后的转写（词典修正 + 可选 AI 修正）。
+- `*.transcript.raw.txt`：原始转写备份（当应用修正时写出）。
+- `*.summary.md`：三段式训练总结：
+  - `## 关键问题`
+  - `## 改进建议`
+  - `## 下次训练检查点`
+- `*.term_review.md`：确定性词典修正 + AI 候选术语修正。
+
+全局文件：
+- `training_log_output/training_log.md`
+- `training_log_output/training_log.json`
+
+---
+
+## 目录结构
+
+默认目录结构如下：
+
+```text
+project-root/
+  videos/                     # 将所有 MP4 文件放在这里
+  training_log_output/        # 生成输出目录
+  extract_training_log.py
+  training_log_web.py
+  webui/
+```
+
+> `extract_training_log.py` 现在默认使用 `--input-dir videos`。
 
 ---
 
